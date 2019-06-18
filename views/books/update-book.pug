@@ -4,7 +4,7 @@ extends layout
 
 block content
   h1 #{notice}
-  form(action="/books/" + book.id + "?_method=POST", method="post")
+  form(action="/books/" + book.id + "?_method=PUT", method="post")
     //- Check validation
     include errors
 
