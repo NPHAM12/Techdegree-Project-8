@@ -28,8 +28,9 @@ router.get('/new-book', (req, res, next) => {
   });
 });
 
-/* POST a new book to the books listing. */
-//Posts  a list of new books from the database
+/* POST is used to add a new resource to a collection. /books
+// a new book to the books listing or list of URLs. */
+//Add a new book to a collection
 router.post('/', (req, res, next) => {
   Book.create(req.body).then(() => {
     // if all info is entered, render the homepage with an added book
@@ -71,9 +72,10 @@ router.get("/:id", (req, res, next) => {
   });
 });
 
-/* PUT update book. */
-// Updates book info in the database.
-router.post('/:id', (req, res, next) => {
+/* PUT Method to update book record. /books/1 */
+// Don't use PUT for a collection or a list of URL (don't use in /books)
+// Updates a book in the database.
+router.put('/:id', (req, res, next) => {
   Book.findByPk(req.params.id).then((updateBook) => {
     if (updateBook) {
       return updateBook.update(req.body);
@@ -101,6 +103,9 @@ router.post('/:id', (req, res, next) => {
 });
 
 /* DELETE an individual book. */
+// Sending a DELETE request to a detail record, a URL for
+// a single record, should delete just that record.
+// Sending delete to an entire collection would delete the whole collection.
 router.delete('/:id', (req, res, next) => {
   Book.findByPk(req.params.id).then((delBook) => {
     if (delBook) {
