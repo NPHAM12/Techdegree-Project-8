@@ -1,0 +1,10 @@
+//- displaying a user friendly “Page Not Found” message
+
+extends layout
+
+block content
+  h1 #{title}
+  p #{message}
+  br
+  p
+    a.button(href='/books/') Back to Home

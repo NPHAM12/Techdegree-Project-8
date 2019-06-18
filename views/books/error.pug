@@ -1,0 +1,10 @@
+//- displaying a user friendly error message.
+extends layout
+
+block content
+  h1 #{notice}
+  p #{message}
+  p
+    a.button(href='/books/') Back to Home
+  h2 #{error.status}
+  pre #{error.stack}

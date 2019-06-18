@@ -1,0 +1,8 @@
+//- displaying notification  when title or author is NULL
+//- If errors is true
+if(errors)
+  h2.error Ooops an error occured!
+  ul.error
+    each error in errors
+      li
+        =error.message
