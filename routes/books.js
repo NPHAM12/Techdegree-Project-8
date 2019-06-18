@@ -89,7 +89,8 @@ router.post('/:id', (req, res, next) => {
       res.render("books/update-book", { //re-render the update book with error messages
         book: updateBook,
         errors: err.errors,
-        title: "Error! Update Book"
+        title: "Error! Update Book",
+        notice: "Error! Update Book"
       })
     } else {
       throw err;
