@@ -3,7 +3,7 @@
 extends layout
 
 block content
-  h1 #{notice}
+  h1 #{title}
   form(action="/books/" + book.id + "?_method=POST", method="post")
     //- Check validation
     include errors
