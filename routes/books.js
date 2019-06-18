@@ -73,7 +73,7 @@ router.get("/:id", (req, res, next) => {
 
 /* PUT update book. */
 // Updates book info in the database.
-router.put('/:id', (req, res, next) => {
+router.post('/:id', (req, res, next) => {
   Book.findByPk(req.params.id).then((updateBook) => {
     if (updateBook) {
       return updateBook.update(req.body);
